@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useCartStore } from '@/store/cartStore'
+import { useAuthStore } from '@/store/authStore'
 import { useCreateOrder } from '@/hooks/useCreateOrder'
 import { formatPrice } from '@/utils/formatPrice'
 import type { ShippingFormValues } from '@/utils/validators'
@@ -13,7 +14,9 @@ const FREE_SHIPPING_THRESHOLD = 50000
 
 const CheckoutPage = () => {
   const navigate = useNavigate()
-  const items = useCartStore((state) => state.items)
+  const user = useAuthStore((s) => s.user)
+  const getItems = useCartStore((s) => s.getItems)
+  const items = user ? getItems(user.id) : []
   const { mutate: createOrder, isPending, isError } = useCreateOrder()
 
   useEffect(() => {
@@ -66,9 +69,7 @@ const CheckoutPage = () => {
                 </li>
               ))}
             </ul>
-
             <div className={styles.divider} />
-
             <div className={styles.row}>
               <span className={styles.rowLabel}>상품 금액</span>
               <span>{formatPrice(totalPrice)}</span>
@@ -79,9 +80,7 @@ const CheckoutPage = () => {
                 {shippingFee === 0 ? '무료' : formatPrice(shippingFee)}
               </span>
             </div>
-
             <div className={styles.divider} />
-
             <div className={styles.totalRow}>
               <span className={styles.totalLabel}>총 결제 금액</span>
               <span className={styles.totalValue}>{formatPrice(finalPrice)}</span>

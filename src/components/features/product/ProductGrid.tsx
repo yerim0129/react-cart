@@ -1,5 +1,7 @@
+import { useNavigate } from 'react-router-dom'
 import type { Product } from '@/types/product'
 import { useCartStore } from '@/store/cartStore'
+import { useAuthStore } from '@/store/authStore'
 import ProductCard from './ProductCard'
 import Skeleton from '@/components/common/Skeleton'
 import styles from './ProductGrid.module.css'
@@ -9,10 +11,16 @@ interface ProductGridProps {
 }
 
 const ProductGrid = ({ products }: ProductGridProps) => {
-  const addItem = useCartStore((state) => state.addItem)
+  const navigate = useNavigate()
+  const user = useAuthStore((s) => s.user)
+  const addItem = useCartStore((s) => s.addItem)
 
   const handleAddToCart = (product: Product) => {
-    addItem(product)
+    if (!user) {
+      navigate('/login')
+      return
+    }
+    addItem(user.id, product)
   }
 
   if (products.length === 0) {

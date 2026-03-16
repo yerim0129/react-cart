@@ -1,13 +1,27 @@
 import { Link } from 'react-router-dom'
 import { useCartStore } from '@/store/cartStore'
+import { useAuthStore } from '@/store/authStore'
 import CartItem from '@/components/features/cart/CartItem'
 import CartSummary from '@/components/features/cart/CartSummary'
 import styles from './CartPage.module.css'
 
 const CartPage = () => {
-  const items = useCartStore((state) => state.items)
-  const updateQuantity = useCartStore((state) => state.updateQuantity)
-  const removeItem = useCartStore((state) => state.removeItem)
+  const user = useAuthStore((s) => s.user)
+  const getItems = useCartStore((s) => s.getItems)
+  const updateQuantity = useCartStore((s) => s.updateQuantity)
+  const removeItem = useCartStore((s) => s.removeItem)
+
+  const items = user ? getItems(user.id) : []
+
+  const handleUpdateQuantity = (productId: number, quantity: number) => {
+    if (!user) return
+    updateQuantity(user.id, productId, quantity)
+  }
+
+  const handleRemove = (productId: number) => {
+    if (!user) return
+    removeItem(user.id, productId)
+  }
 
   if (items.length === 0) {
     return (
@@ -32,12 +46,11 @@ const CartPage = () => {
             <CartItem
               key={item.productId}
               item={item}
-              onUpdateQuantity={updateQuantity}
-              onRemove={removeItem}
+              onUpdateQuantity={handleUpdateQuantity}
+              onRemove={handleRemove}
             />
           ))}
         </section>
-
         <aside className={styles.summarySection}>
           <CartSummary items={items} />
         </aside>

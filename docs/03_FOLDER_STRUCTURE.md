@@ -190,3 +190,40 @@ db.json
 ### `pages/`
 - 훅과 컴포넌트를 조립하는 역할만
 - 자체 비즈니스 로직 최소화
+
+
+---
+
+## Auth 추가 파일 목록 (Phase 2 완료 후 추가)
+
+```
+src/
+├── api/
+│   └── auth.ts                          # 로그인, 회원가입 API
+│
+├── types/
+│   └── user.ts                          # User, LoginPayload, RegisterPayload, AuthResponse
+│
+├── store/
+│   ├── authStore.ts                     # 로그인 상태 전역 관리 (Zustand + persist)
+│   └── cartStore.ts                     # ★ 수정 — userId 기반 장바구니 분리
+│
+├── hooks/
+│   └── useAuth.ts                       # useLogin, useRegister, useLogout
+│
+├── components/
+│   └── layout/
+│       ├── ProtectedRoute.tsx           # 비로그인 접근 차단 → /login 리다이렉트
+│       └── Header.tsx                   # ★ 수정 — 로그인 상태에 따라 버튼 분기
+│
+├── pages/
+│   ├── LoginPage.tsx
+│   ├── LoginPage.module.css
+│   ├── RegisterPage.tsx
+│   └── RegisterPage.module.css
+│
+└── utils/
+    └── validators.ts                    # ★ 수정 — loginSchema, registerSchema 추가
+
+App.tsx                                  # ★ 수정 — ProtectedRoute 적용
+```

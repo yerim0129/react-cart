@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useProduct } from '@/hooks/useProduct'
 import { useCartStore } from '@/store/cartStore'
+import { useAuthStore } from '@/store/authStore'
 import { useReviews, useCreateReview } from '@/hooks/useReviews'
 import { formatPrice } from '@/utils/formatPrice'
 import Badge from '@/components/common/Badge'
@@ -29,6 +30,7 @@ const ProductDetailPage = () => {
   const { data: product, isLoading, isError } = useProduct(Number(id))
   const { data: reviews = [] } = useReviews(Number(id))
   const { mutate: createReview, isPending: isReviewLoading } = useCreateReview(Number(id))
+  const user = useAuthStore((s) => s.user)
   const addItem = useCartStore((state) => state.addItem)
 
   const handleDecrease = () => setQuantity((prev) => Math.max(1, prev - 1))
@@ -39,7 +41,8 @@ const ProductDetailPage = () => {
 
   const handleAddToCart = () => {
     if (!product) return
-    addItem(product, quantity)
+    if (!user) { navigate('/login'); return }
+    addItem(user.id, product, quantity)
     navigate('/cart')
   }
 

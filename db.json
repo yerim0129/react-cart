@@ -97,7 +97,119 @@
       "createdAt": "2024-02-18"
     }
   ],
-  "orders": [],
-  "wishlists": [],
-  "reviews": []
+  "users": [
+    {
+      "id": 1,
+      "name": "테스트유저",
+      "email": "test@test.com",
+      "password": "test1234",
+      "createdAt": "2026-03-16"
+    }
+  ],
+  "carts": [],
+  "orders": [
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        },
+        {
+          "productId": 4,
+          "product": {
+            "id": 4,
+            "name": "스마트 워치",
+            "price": 199000,
+            "category": "electronics",
+            "imageUrl": "https://picsum.photos/seed/product4/400/400",
+            "stock": 15,
+            "description": "심박수, 수면 추적, GPS 기능이 내장된 스마트 워치.",
+            "rating": 4.2,
+            "reviewCount": 5,
+            "createdAt": "2024-02-05"
+          },
+          "quantity": 2
+        }
+      ],
+      "shippingInfo": {
+        "name": "홍길동",
+        "phone": "010-0000-0000",
+        "address": "금천구 가산동",
+        "detailAddress": "홍길동",
+        "memo": ""
+      },
+      "totalPrice": 457000,
+      "createdAt": "2026-03-16T04:40:51.423Z",
+      "id": 1
+    },
+    {
+      "items": [
+        {
+          "productId": 8,
+          "product": {
+            "id": 8,
+            "name": "USB-C 고속 충전기",
+            "price": 35000,
+            "category": "electronics",
+            "imageUrl": "https://picsum.photos/seed/product8/400/400",
+            "stock": 60,
+            "description": "65W 고속 충전 지원, 멀티 포트 USB-C 충전기.",
+            "rating": 4.1,
+            "reviewCount": 14,
+            "createdAt": "2024-02-18"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "길동",
+        "phone": "010-4502-3130",
+        "address": "금천구 가산동",
+        "detailAddress": "11",
+        "memo": "11"
+      },
+      "totalPrice": 38000,
+      "createdAt": "2026-03-16T04:41:35.970Z",
+      "id": 2
+    }
+  ],
+  "wishlists": [
+    {
+      "productId": 1,
+      "createdAt": "2026-03-16T02:04:16.350Z",
+      "id": 1
+    },
+    {
+      "productId": 2,
+      "createdAt": "2026-03-16T02:04:19.353Z",
+      "id": 2
+    },
+    {
+      "productId": 3,
+      "createdAt": "2026-03-16T02:04:20.199Z",
+      "id": 3
+    }
+  ],
+  "reviews": [
+    {
+      "productId": 4,
+      "rating": 4,
+      "content": "안녕하신지?",
+      "author": "길동",
+      "createdAt": "2026-03-16T04:41:06.012Z",
+      "id": 1
+    }
+  ]
 }

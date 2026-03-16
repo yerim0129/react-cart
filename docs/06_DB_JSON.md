@@ -310,3 +310,32 @@ export const shippingSchema = z.object({
 
 export type ShippingFormValues = z.infer<typeof shippingSchema>
 ```
+
+
+---
+
+## Auth 추가 — db.json 업데이트
+
+기존 db.json에 아래 두 항목을 추가합니다.
+
+```json
+{
+  "products": [ ... ],
+  "orders": [],
+  "wishlists": [],
+  "reviews": [],
+  "users": [
+    {
+      "id": 1,
+      "name": "테스트유저",
+      "email": "test@test.com",
+      "password": "test1234",
+      "createdAt": "2024-01-01"
+    }
+  ],
+  "carts": []
+}
+```
+
+> ⚠️ 비밀번호 평문 저장은 포트폴리오 한정.
+> README에 보안 안내 문구 필수 추가.
