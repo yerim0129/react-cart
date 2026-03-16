@@ -17,6 +17,9 @@ const Header = () => {
           <Link to="/" className={styles.navLink}>
             상품
           </Link>
+          <Link to="/wishlist" className={styles.navLink}>
+            찜하기
+          </Link>
           <Link to="/cart" className={styles.cartLink}>
             장바구니
             {totalQuantity > 0 && (

@@ -3,6 +3,7 @@ import type { Product } from '@/types/product'
 import { formatPrice } from '@/utils/formatPrice'
 import Badge from '@/components/common/Badge'
 import Button from '@/components/common/Button'
+import WishlistButton from '@/components/features/wishlist/WishlistButton'
 import styles from './ProductCard.module.css'
 
 interface ProductCardProps {
@@ -30,6 +31,9 @@ const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
         {isOutOfStock && (
           <div className={styles.outOfStockOverlay}>품절</div>
         )}
+        <div className={styles.wishlistBtn}>
+          <WishlistButton productId={product.id} size="sm" />
+        </div>
       </Link>
       <div className={styles.body}>
         <div className={styles.meta}>

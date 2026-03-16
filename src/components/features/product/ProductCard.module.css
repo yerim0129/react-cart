@@ -24,6 +24,12 @@
   object-fit: cover;
 }
 
+.wishlistBtn {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+}
+
 .outOfStockOverlay {
   position: absolute;
   inset: 0;

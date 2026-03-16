@@ -2,12 +2,16 @@ import { useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useProduct } from '@/hooks/useProduct'
 import { useCartStore } from '@/store/cartStore'
+import { useReviews, useCreateReview } from '@/hooks/useReviews'
 import { formatPrice } from '@/utils/formatPrice'
 import Badge from '@/components/common/Badge'
 import Button from '@/components/common/Button'
-import Spinner from '@/components/common/Spinner'
 import ErrorMessage from '@/components/common/ErrorMessage'
 import Skeleton from '@/components/common/Skeleton'
+import Modal from '@/components/common/Modal'
+import WishlistButton from '@/components/features/wishlist/WishlistButton'
+import ReviewList from '@/components/features/review/ReviewList'
+import ReviewForm from '@/components/features/review/ReviewForm'
 import styles from './ProductDetailPage.module.css'
 
 const CATEGORY_LABELS: Record<string, string> = {
@@ -20,14 +24,14 @@ const ProductDetailPage = () => {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
   const [quantity, setQuantity] = useState(1)
+  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false)
 
   const { data: product, isLoading, isError } = useProduct(Number(id))
+  const { data: reviews = [] } = useReviews(Number(id))
+  const { mutate: createReview, isPending: isReviewLoading } = useCreateReview(Number(id))
   const addItem = useCartStore((state) => state.addItem)
 
-  const handleDecrease = () => {
-    setQuantity((prev) => Math.max(1, prev - 1))
-  }
-
+  const handleDecrease = () => setQuantity((prev) => Math.max(1, prev - 1))
   const handleIncrease = () => {
     if (!product) return
     setQuantity((prev) => Math.min(product.stock, prev + 1))
@@ -37,6 +41,12 @@ const ProductDetailPage = () => {
     if (!product) return
     addItem(product, quantity)
     navigate('/cart')
+  }
+
+  const handleReviewSubmit = (payload: Parameters<typeof createReview>[0]) => {
+    createReview(payload, {
+      onSuccess: () => setIsReviewModalOpen(false),
+    })
   }
 
   if (isLoading) {
@@ -87,41 +97,28 @@ const ProductDetailPage = () => {
             {isOutOfStock && <Badge label="품절" variant="danger" />}
           </div>
 
-          <h1 className={styles.name}>{product.name}</h1>
-          <p className={styles.price}>{formatPrice(product.price)}</p>
+          <div className={styles.nameRow}>
+            <h1 className={styles.name}>{product.name}</h1>
+            <WishlistButton productId={product.id} />
+          </div>
 
+          <p className={styles.price}>{formatPrice(product.price)}</p>
           <p className={styles.description}>{product.description}</p>
 
           <div className={styles.meta}>
             <span className={styles.metaItem}>
               ⭐ {product.rating.toFixed(1)} ({product.reviewCount}개 리뷰)
             </span>
-            <span className={styles.metaItem}>
-              재고 {product.stock}개
-            </span>
+            <span className={styles.metaItem}>재고 {product.stock}개</span>
           </div>
 
           {!isOutOfStock && (
             <div className={styles.quantityWrapper}>
               <span className={styles.quantityLabel}>수량</span>
               <div className={styles.quantityControl}>
-                <button
-                  type="button"
-                  className={styles.quantityBtn}
-                  onClick={handleDecrease}
-                  disabled={quantity <= 1}
-                >
-                  −
-                </button>
+                <button type="button" className={styles.quantityBtn} onClick={handleDecrease} disabled={quantity <= 1}>−</button>
                 <span className={styles.quantityValue}>{quantity}</span>
-                <button
-                  type="button"
-                  className={styles.quantityBtn}
-                  onClick={handleIncrease}
-                  disabled={quantity >= product.stock}
-                >
-                  +
-                </button>
+                <button type="button" className={styles.quantityBtn} onClick={handleIncrease} disabled={quantity >= product.stock}>+</button>
               </div>
             </div>
           )}
@@ -138,6 +135,27 @@ const ProductDetailPage = () => {
           />
         </div>
       </div>
+
+      {/* 리뷰 섹션 */}
+      <section className={styles.reviewSection}>
+        <div className={styles.reviewHeader}>
+          <h2 className={styles.reviewTitle}>리뷰 {reviews.length > 0 && `(${reviews.length})`}</h2>
+          <Button label="리뷰 작성" variant="secondary" onClick={() => setIsReviewModalOpen(true)} />
+        </div>
+        <ReviewList reviews={reviews} />
+      </section>
+
+      <Modal
+        isOpen={isReviewModalOpen}
+        title="리뷰 작성"
+        onClose={() => setIsReviewModalOpen(false)}
+      >
+        <ReviewForm
+          productId={product.id}
+          onSubmit={handleReviewSubmit}
+          isLoading={isReviewLoading}
+        />
+      </Modal>
     </div>
   )
 }
