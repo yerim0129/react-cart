@@ -82,6 +82,19 @@ export const useCartStore = create<CartState>()(
       getTotalCount: (userId) =>
         (get().itemsByUser[userId] ?? []).reduce((sum, item) => sum + item.quantity, 0),
     }),
-    { name: 'cart-storage' }
+    {
+      name: 'cart-storage',
+      version: 1,
+      migrate: (persistedState) => {
+        const state = persistedState as CartState
+        const cleaned: Record<number, CartItem[]> = {}
+        for (const [userId, items] of Object.entries(state.itemsByUser ?? {})) {
+          cleaned[Number(userId)] = items.filter(
+            (item) => item.product != null && Number.isFinite(item.product.price)
+          )
+        }
+        return { ...state, itemsByUser: cleaned }
+      },
+    }
   )
 )

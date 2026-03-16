@@ -1,23 +1,26 @@
+import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Layout from '@/components/layout/Layout'
 import ProtectedRoute from '@/components/layout/ProtectedRoute'
 import AdminRoute from '@/components/layout/AdminRoute'
 import AdminLayout from '@/components/layout/AdminLayout'
-import HomePage from '@/pages/HomePage'
-import ProductDetailPage from '@/pages/ProductDetailPage'
-import CartPage from '@/pages/CartPage'
-import CheckoutPage from '@/pages/CheckoutPage'
-import OrderCompletePage from '@/pages/OrderCompletePage'
-import WishlistPage from '@/pages/WishlistPage'
-import LoginPage from '@/pages/LoginPage'
-import RegisterPage from '@/pages/RegisterPage'
-import AdminProductsPage from '@/pages/admin/AdminProductsPage'
-import AdminOrdersPage from '@/pages/admin/AdminOrdersPage'
-import NotFoundPage from '@/pages/NotFoundPage'
+
+const HomePage = lazy(() => import('@/pages/HomePage'))
+const ProductDetailPage = lazy(() => import('@/pages/ProductDetailPage'))
+const CartPage = lazy(() => import('@/pages/CartPage'))
+const CheckoutPage = lazy(() => import('@/pages/CheckoutPage'))
+const OrderCompletePage = lazy(() => import('@/pages/OrderCompletePage'))
+const WishlistPage = lazy(() => import('@/pages/WishlistPage'))
+const LoginPage = lazy(() => import('@/pages/LoginPage'))
+const RegisterPage = lazy(() => import('@/pages/RegisterPage'))
+const AdminProductsPage = lazy(() => import('@/pages/admin/AdminProductsPage'))
+const AdminOrdersPage = lazy(() => import('@/pages/admin/AdminOrdersPage'))
+const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
 
 function App() {
   return (
     <BrowserRouter>
+      <Suspense fallback={null}>
       <Routes>
         {/* 일반 레이아웃 */}
         <Route element={<Layout />}>
@@ -48,6 +51,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
+      </Suspense>
     </BrowserRouter>
   )
 }
