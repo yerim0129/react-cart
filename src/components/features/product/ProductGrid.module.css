@@ -1,26 +1,26 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: var(--spacing-lg);
+  gap: var(--space-6);
 }
 
 .empty {
   text-align: center;
-  padding: var(--spacing-xl) 0;
-  color: var(--color-gray-500);
-  font-size: var(--font-size-lg);
+  padding: var(--space-12) 0;
+  color: var(--color-text-tertiary);
+  font-size: var(--font-size-md);
 }
 
 .skeletonCard {
-  background-color: #fff;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
   overflow: hidden;
 }
 
 .skeletonBody {
-  padding: var(--spacing-md);
+  padding: var(--space-4);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: var(--space-2);
 }

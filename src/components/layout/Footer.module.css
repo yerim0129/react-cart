@@ -1,13 +1,13 @@
 .footer {
-  background-color: var(--color-gray-900);
-  color: var(--color-gray-500);
+  background-color: var(--color-text-primary);
+  color: var(--color-text-tertiary);
   margin-top: auto;
 }
 
 .inner {
-  max-width: 1200px;
+  max-width: var(--max-width-content);
   margin: 0 auto;
-  padding: var(--spacing-lg);
+  padding: var(--space-6);
   text-align: center;
 }
 

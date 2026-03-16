@@ -2,16 +2,17 @@
   width: var(--skeleton-width, 100%);
   height: var(--skeleton-height, 16px);
   border-radius: var(--skeleton-radius, 4px);
-  background: linear-gradient(90deg, var(--color-gray-100) 25%, var(--color-gray-200) 50%, var(--color-gray-100) 75%);
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-sunken) 25%,
+    var(--color-border) 50%,
+    var(--color-bg-sunken) 75%
+  );
   background-size: 200% 100%;
   animation: shimmer 1.4s infinite;
 }
 
 @keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }

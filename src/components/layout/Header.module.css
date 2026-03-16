@@ -2,15 +2,15 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: #fff;
-  border-bottom: 1px solid var(--color-gray-200);
-  box-shadow: var(--shadow-sm);
+  background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-xs);
 }
 
 .inner {
-  max-width: 1200px;
+  max-width: var(--max-width-content);
   margin: 0 auto;
-  padding: 0 var(--spacing-lg);
+  padding: 0 var(--space-6);
   height: 60px;
   display: flex;
   align-items: center;
@@ -18,36 +18,39 @@
 }
 
 .logo {
-  font-size: var(--font-size-xl);
-  font-weight: 700;
-  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+  letter-spacing: -0.5px;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: var(--spacing-lg);
+  gap: var(--space-6);
 }
 
 .navLink {
   font-size: var(--font-size-base);
-  color: var(--color-gray-700);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
 }
 
 .navLink:hover {
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 
 .cartLink {
   position: relative;
   font-size: var(--font-size-base);
-  color: var(--color-gray-700);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
 }
 
 .cartLink:hover {
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 
 .badge {
@@ -56,12 +59,12 @@
   right: -12px;
   min-width: 18px;
   height: 18px;
-  padding: 0 4px;
-  background-color: var(--color-danger);
+  padding: 0 var(--space-1);
+  background-color: var(--color-error);
   color: #fff;
-  border-radius: 9px;
-  font-size: var(--font-size-sm);
-  font-weight: 700;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
   display: flex;
   align-items: center;
   justify-content: center;

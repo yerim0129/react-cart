@@ -1,40 +1,122 @@
+/* 1. Google Fonts — Pretendard */
+@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap');
+
+/* 2. CSS Variables */
 :root {
-  /* 색상 */
-  --color-primary: #2563eb;
-  --color-primary-hover: #1d4ed8;
-  --color-danger: #dc2626;
-  --color-success: #16a34a;
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-500: #6b7280;
-  --color-gray-700: #374151;
-  --color-gray-900: #111827;
+  /* ── Background ── */
+  --color-bg:           #F0EEE9;
+  --color-bg-surface:   #FAFAF8;
+  --color-bg-sunken:    #E8E5DF;
 
-  /* 타이포그래피 */
-  --font-size-sm: 12px;
-  --font-size-base: 14px;
-  --font-size-lg: 16px;
-  --font-size-xl: 20px;
-  --font-size-2xl: 24px;
+  /* ── Text ── */
+  --color-text-primary:   #1A1917;
+  --color-text-secondary: #5C5955;
+  --color-text-tertiary:  #9C9890;
+  --color-text-inverse:   #FAFAF8;
 
-  /* 간격 */
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 32px;
+  /* ── Border ── */
+  --color-border:        #D9D6CF;
+  --color-border-strong: #B8B5AE;
 
-  /* 테두리 */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  /* ── Accent (action) ── */
+  --color-accent:       #3D6B8E;
+  --color-accent-hover: #2E5470;
+  --color-accent-light: #EBF2F8;
+  --color-accent-text:  #FAFAF8;
 
-  /* 그림자 */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* ── Semantic ── */
+  --color-success:       #3A7D5A;
+  --color-success-light: #EBF5EF;
+  --color-error:         #C0392B;
+  --color-error-light:   #FAEAEA;
+  --color-warning:       #B8860B;
+  --color-warning-light: #FDF6E3;
+
+  /* ── Typography ── */
+  --font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-size-xs:   11px;
+  --font-size-sm:   13px;
+  --font-size-base: 15px;
+  --font-size-md:   17px;
+  --font-size-lg:   20px;
+  --font-size-xl:   24px;
+  --font-size-2xl:  32px;
+  --font-size-3xl:  40px;
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+  --line-height-tight: 1.3;
+  --line-height-base:  1.6;
+  --line-height-loose: 1.8;
+
+  /* ── Spacing (8px grid) ── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+
+  /* ── Border Radius ── */
+  --radius-xs:   4px;
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   16px;
+  --radius-full: 9999px;
+
+  /* ── Shadow ── */
+  --shadow-xs: 0 1px 2px  rgba(26, 25, 23, 0.06);
+  --shadow-sm: 0 2px 8px  rgba(26, 25, 23, 0.08);
+  --shadow-md: 0 4px 16px rgba(26, 25, 23, 0.10);
+  --shadow-lg: 0 8px 32px rgba(26, 25, 23, 0.12);
+
+  /* ── Transition ── */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+
+  /* ── Layout ── */
+  --max-width-content: 1200px;
+  --max-width-narrow:   720px;
+
+  /* ── Legacy aliases (기존 CSS 모듈 호환) ── */
+  --color-primary:       var(--color-accent);
+  --color-primary-hover: var(--color-accent-hover);
+  --color-danger:        var(--color-error);
+  --color-success-old:   var(--color-success);
+  --color-gray-50:       var(--color-bg);
+  --color-gray-100:      var(--color-bg-surface);
+  --color-gray-200:      var(--color-border);
+  --color-gray-500:      var(--color-text-tertiary);
+  --color-gray-700:      var(--color-text-secondary);
+  --color-gray-900:      var(--color-text-primary);
+  --spacing-xs:          var(--space-1);
+  --spacing-sm:          var(--space-2);
+  --spacing-md:          var(--space-4);
+  --spacing-lg:          var(--space-6);
+  --spacing-xl:          var(--space-8);
 }
 
+/* 3. Dark mode (Phase 2 대비) */
+/*
+[data-theme='dark'] {
+  --color-bg:           #1A1917;
+  --color-bg-surface:   #242220;
+  --color-bg-sunken:    #2E2C2A;
+  --color-text-primary: #F0EEE9;
+  --color-text-secondary: #B8B5AE;
+  --color-border:       #3A3835;
+  --color-border-strong:#4E4B47;
+}
+*/
+
+/* 4. Reset */
 *,
 *::before,
 *::after {
@@ -43,12 +125,19 @@
   padding: 0;
 }
 
+/* 5. Base */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: var(--font-family);
   font-size: var(--font-size-base);
-  color: var(--color-gray-900);
-  background-color: var(--color-gray-50);
-  line-height: 1.5;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  line-height: var(--line-height-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 a {
@@ -57,10 +146,6 @@ a {
 }
 
 button {
+  cursor: pointer;
   font-family: inherit;
-}
-
-img {
-  max-width: 100%;
-  display: block;
 }
