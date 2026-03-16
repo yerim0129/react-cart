@@ -13,6 +13,7 @@ import LoginPage from '@/pages/LoginPage'
 import RegisterPage from '@/pages/RegisterPage'
 import AdminProductsPage from '@/pages/admin/AdminProductsPage'
 import AdminOrdersPage from '@/pages/admin/AdminOrdersPage'
+import NotFoundPage from '@/pages/NotFoundPage'
 
 function App() {
   return (
@@ -40,6 +41,11 @@ function App() {
         >
           <Route path="products" element={<AdminProductsPage />} />
           <Route path="orders" element={<AdminOrdersPage />} />
+        </Route>
+
+        {/* 404 */}
+        <Route path="*" element={<Layout />}>
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
