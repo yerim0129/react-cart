@@ -21,6 +21,9 @@ const Header = () => {
 
           {isLoggedIn ? (
             <>
+              {user?.role === 'admin' && (
+                <Link to="/admin/products" className={styles.adminLink}>관리자</Link>
+              )}
               <Link to="/wishlist" className={styles.navLink}>찜하기</Link>
               <Link to="/cart" className={styles.cartLink}>
                 장바구니

@@ -103,6 +103,15 @@
       "name": "테스트유저",
       "email": "test@test.com",
       "password": "test1234",
+      "role": "user",
+      "createdAt": "2026-03-16"
+    },
+    {
+      "id": 2,
+      "name": "관리자",
+      "email": "admin@test.com",
+      "password": "admin1234",
+      "role": "admin",
       "createdAt": "2026-03-16"
     }
   ],
