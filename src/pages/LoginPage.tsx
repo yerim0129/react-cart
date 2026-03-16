@@ -29,7 +29,7 @@ const LoginPage = () => {
         <h1 className={styles.title}>로그인</h1>
 
         {isError && (
-          <ErrorMessage message={(error as Error).message ?? '로그인에 실패했습니다.'} />
+          <ErrorMessage message={error instanceof Error ? error.message : '로그인에 실패했습니다.'} />
         )}
 
         <form className={styles.form} onSubmit={handleSubmit(handleLogin)} noValidate>

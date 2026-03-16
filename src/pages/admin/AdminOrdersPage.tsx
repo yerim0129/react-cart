@@ -1,18 +1,9 @@
 import { useAdminOrders } from '@/hooks/useAdminOrders'
 import { formatPrice } from '@/utils/formatPrice'
+import { formatDateTime } from '@/utils/formatDate'
 import Spinner from '@/components/common/Spinner'
 import ErrorMessage from '@/components/common/ErrorMessage'
 import styles from './AdminOrdersPage.module.css'
-
-const formatDate = (isoString: string) => {
-  return new Date(isoString).toLocaleString('ko-KR', {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-  })
-}
 
 const AdminOrdersPage = () => {
   const { data: orders, isLoading, isError } = useAdminOrders()
@@ -63,7 +54,7 @@ const AdminOrdersPage = () => {
                     </div>
                   </td>
                   <td className={styles.priceCell}>{formatPrice(order.totalPrice)}</td>
-                  <td className={styles.dateCell}>{formatDate(order.createdAt)}</td>
+                  <td className={styles.dateCell}>{formatDateTime(order.createdAt)}</td>
                 </tr>
               ))}
             </tbody>

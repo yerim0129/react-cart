@@ -10,7 +10,7 @@ interface UseProductsOptions {
 
 export const useProducts = (options: UseProductsOptions = {}) => {
   return useQuery({
-    queryKey: ['products', options],
+    queryKey: ['products', options.category, options.sort, options.search],
     queryFn: getProducts,
     select: (data) => {
       let result = [...data]

@@ -6,7 +6,6 @@ import styles from './Header.module.css'
 
 const Header = () => {
   const user = useAuthStore((s) => s.user)
-  const isLoggedIn = useAuthStore((s) => s.isLoggedIn)
   const totalQuantity = useCartStore((s) =>
     user ? s.getTotalCount(user.id) : 0
   )
@@ -19,7 +18,7 @@ const Header = () => {
         <nav className={styles.nav}>
           <Link to="/" className={styles.navLink}>상품</Link>
 
-          {isLoggedIn ? (
+          {user !== null ? (
             <>
               {user?.role === 'admin' && (
                 <Link to="/admin/products" className={styles.adminLink}>관리자</Link>

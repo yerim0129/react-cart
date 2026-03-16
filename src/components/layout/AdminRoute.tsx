@@ -7,9 +7,8 @@ interface AdminRouteProps {
 
 const AdminRoute = ({ children }: AdminRouteProps) => {
   const user = useAuthStore((s) => s.user)
-  const isLoggedIn = useAuthStore((s) => s.isLoggedIn)
 
-  if (!isLoggedIn) {
+  if (user === null) {
     return <Navigate to="/login" replace />
   }
 

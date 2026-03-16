@@ -28,8 +28,7 @@ const OrderCompletePage = () => {
         <h1 className={styles.title}>주문이 완료되었습니다</h1>
         <p className={styles.orderId}>주문번호 <strong>#{state.orderId}</strong></p>
         <p className={styles.description}>
-          주문하신 상품을 빠르게 배송해드리겠습니다.<br />
-          배송 현황은 마이페이지에서 확인하실 수 있습니다.
+          주문하신 상품을 빠르게 배송해드리겠습니다.
         </p>
         <div className={styles.actions}>
           <Link to="/" className={styles.primaryBtn}>쇼핑 계속하기</Link>

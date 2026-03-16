@@ -1,7 +1,6 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useWishlistStore } from '@/store/wishlistStore'
 import { addWishlist, removeWishlist, getWishlists } from '@/api/wishlist'
-import { useQuery } from '@tanstack/react-query'
 
 export const useWishlistItems = () => {
   return useQuery({
@@ -15,10 +14,7 @@ export const useWishlistToggle = (productId: number) => {
   const { isWishlisted, addToWishlist, removeFromWishlist } = useWishlistStore()
   const wishlisted = isWishlisted(productId)
 
-  const { data: wishlists } = useQuery({
-    queryKey: ['wishlists'],
-    queryFn: getWishlists,
-  })
+  const { data: wishlists } = useWishlistItems()
 
   const addMutation = useMutation({
     mutationFn: () => addWishlist(productId),

@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Spinner from '@/components/common/Spinner'
 import Layout from '@/components/layout/Layout'
 import ProtectedRoute from '@/components/layout/ProtectedRoute'
 import AdminRoute from '@/components/layout/AdminRoute'
@@ -20,7 +21,7 @@ const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'))
 function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={null}>
+      <Suspense fallback={<Spinner size="lg" />}>
       <Routes>
         {/* 일반 레이아웃 */}
         <Route element={<Layout />}>

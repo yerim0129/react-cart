@@ -6,10 +6,10 @@ interface ProtectedRouteProps {
 }
 
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
-  const isLoggedIn = useAuthStore((s) => s.isLoggedIn)
+  const user = useAuthStore((s) => s.user)
   const location = useLocation()
 
-  if (!isLoggedIn) {
+  if (user === null) {
     return <Navigate to="/login" state={{ from: location }} replace />
   }
 

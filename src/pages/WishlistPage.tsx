@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { useWishlistItems } from '@/hooks/useWishlist'
 import { useProducts } from '@/hooks/useProducts'
 import { useWishlistStore } from '@/store/wishlistStore'
 import { formatPrice } from '@/utils/formatPrice'

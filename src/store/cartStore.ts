@@ -86,7 +86,7 @@ export const useCartStore = create<CartState>()(
       name: 'cart-storage',
       version: 1,
       migrate: (persistedState) => {
-        const state = persistedState as CartState
+        const state = persistedState as { itemsByUser?: Record<string, CartItem[]> }
         const cleaned: Record<number, CartItem[]> = {}
         for (const [userId, items] of Object.entries(state.itemsByUser ?? {})) {
           cleaned[Number(userId)] = items.filter(

@@ -29,7 +29,7 @@ const RegisterPage = () => {
         <h1 className={styles.title}>회원가입</h1>
 
         {isError && (
-          <ErrorMessage message={(error as Error).message ?? '회원가입에 실패했습니다.'} />
+          <ErrorMessage message={error instanceof Error ? error.message : '회원가입에 실패했습니다.'} />
         )}
 
         <form className={styles.form} onSubmit={handleSubmit(handleRegister)} noValidate>

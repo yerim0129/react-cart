@@ -5,7 +5,6 @@ import type { User } from '@/types/user'
 interface AuthState {
   user: User | null
   token: string | null
-  isLoggedIn: boolean
   login: (user: User, token: string) => void
   logout: () => void
 }
@@ -15,11 +14,10 @@ export const useAuthStore = create<AuthState>()(
     (set) => ({
       user: null,
       token: null,
-      isLoggedIn: false,
 
-      login: (user, token) => set({ user, token, isLoggedIn: true }),
+      login: (user, token) => set({ user, token }),
 
-      logout: () => set({ user: null, token: null, isLoggedIn: false }),
+      logout: () => set({ user: null, token: null }),
     }),
     { name: 'auth-storage' }
   )

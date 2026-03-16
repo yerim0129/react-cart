@@ -16,10 +16,10 @@ const queryClient = new QueryClient({
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ErrorBoundary>
-      <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <ErrorBoundary>
         <App />
-      </QueryClientProvider>
-    </ErrorBoundary>
+      </ErrorBoundary>
+    </QueryClientProvider>
   </StrictMode>
 )
