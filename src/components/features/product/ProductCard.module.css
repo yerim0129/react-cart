@@ -16,12 +16,18 @@
 .imageLink {
   position: relative;
   display: block;
+  overflow: hidden;
 }
 
 .image {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .image {
+  transform: scale(1.04);
 }
 
 .wishlistBtn {

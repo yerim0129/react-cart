@@ -35,7 +35,7 @@ const Header = () => {
                   <span className={styles.badge} aria-hidden="true">{totalQuantity}</span>
                 )}
               </Link>
-              <span className={styles.userName}>{user.name}</span>
+              <Link to="/mypage" className={styles.navLink}>{user.name}</Link>
               <button type="button" className={styles.logoutBtn} onClick={logout}>
                 로그아웃
               </button>
@@ -76,7 +76,7 @@ const Header = () => {
               <Link to="/cart" className={styles.mobileLink} onClick={closeMenu}>
                 장바구니 {totalQuantity > 0 && `(${totalQuantity})`}
               </Link>
-              <span className={styles.mobileUserName}>{user.name}</span>
+              <Link to="/mypage" className={styles.mobileLink} onClick={closeMenu}>{user.name} · 마이페이지</Link>
               <button
                 type="button"
                 className={styles.mobileLogoutBtn}

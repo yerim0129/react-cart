@@ -12,6 +12,7 @@ const CartPage = lazy(() => import('@/pages/CartPage'))
 const CheckoutPage = lazy(() => import('@/pages/CheckoutPage'))
 const OrderCompletePage = lazy(() => import('@/pages/OrderCompletePage'))
 const WishlistPage = lazy(() => import('@/pages/WishlistPage'))
+const MyPage = lazy(() => import('@/pages/MyPage'))
 const LoginPage = lazy(() => import('@/pages/LoginPage'))
 const RegisterPage = lazy(() => import('@/pages/RegisterPage'))
 const AdminProductsPage = lazy(() => import('@/pages/admin/AdminProductsPage'))
@@ -36,6 +37,7 @@ function App() {
           <Route path="/checkout" element={<ProtectedRoute><CheckoutPage /></ProtectedRoute>} />
           <Route path="/order-complete" element={<ProtectedRoute><OrderCompletePage /></ProtectedRoute>} />
           <Route path="/wishlist" element={<ProtectedRoute><WishlistPage /></ProtectedRoute>} />
+          <Route path="/mypage" element={<ProtectedRoute><MyPage /></ProtectedRoute>} />
         </Route>
 
         {/* 관리자 레이아웃 */}

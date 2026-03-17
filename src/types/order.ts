@@ -15,6 +15,7 @@ export interface ShippingInfo {
 }
 
 export interface CreateOrderPayload {
+  userId: number
   items: CartItem[]
   shippingInfo: ShippingInfo
   totalPrice: number

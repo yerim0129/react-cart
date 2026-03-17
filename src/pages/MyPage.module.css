@@ -1,0 +1,249 @@
+.page {
+  animation: pageFadeIn 250ms ease both;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+/* 섹션 */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.sectionTitle {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.orderCount {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  background-color: var(--color-accent-light);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+}
+
+/* 프로필 카드 */
+.profileCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+  color: var(--color-accent-text);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.profileName {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.profileEmail {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+}
+
+.roleBadge {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent);
+  background-color: var(--color-accent-light);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  margin-top: var(--space-1);
+}
+
+/* 빈 상태 */
+.empty {
+  padding: var(--space-12) 0;
+  text-align: center;
+}
+
+.emptyText {
+  font-size: var(--font-size-base);
+  color: var(--color-text-tertiary);
+}
+
+/* 주문 목록 */
+.orderList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.orderCard {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.orderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4) var(--space-6);
+  background-color: var(--color-bg-sunken);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.orderId {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.orderDate {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-tertiary);
+}
+
+/* 주문 상품 목록 */
+.itemList {
+  list-style: none;
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.itemImage {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.itemInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.itemName {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemMeta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+  margin-top: var(--space-1);
+}
+
+.itemTotal {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+}
+
+/* 주문 푸터 */
+.orderFooter {
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.shippingInfo {
+  display: flex;
+  gap: var(--space-3);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.shippingLabel {
+  color: var(--color-text-tertiary);
+  flex-shrink: 0;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border);
+}
+
+.totalPrice {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-accent);
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: var(--font-size-xl);
+  }
+
+  .profileCard {
+    padding: var(--space-4);
+  }
+
+  .orderHeader {
+    padding: var(--space-3) var(--space-4);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-1);
+  }
+
+  .itemList {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .orderFooter {
+    padding: var(--space-3) var(--space-4);
+  }
+}
