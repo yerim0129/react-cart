@@ -19,3 +19,13 @@
   flex-direction: column;
   gap: var(--space-4);
 }
+
+.addressRow {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2);
+}
+
+.addressRow > :first-child {
+  flex: 1;
+}
