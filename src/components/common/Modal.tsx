@@ -25,10 +25,16 @@ const Modal = ({ isOpen, title, onClose, children }: ModalProps) => {
   if (!isOpen) return null
 
   return (
-    <div className={styles.backdrop} onClick={onClose} role="dialog" aria-modal="true">
+    <div
+      className={styles.backdrop}
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
       <div className={styles.panel} onClick={(e) => e.stopPropagation()}>
         <div className={styles.header}>
-          <h2 className={styles.title}>{title}</h2>
+          <h2 id="modal-title" className={styles.title}>{title}</h2>
           <button type="button" className={styles.closeBtn} onClick={onClose} aria-label="닫기">
             ✕
           </button>

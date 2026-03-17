@@ -23,6 +23,20 @@
   }
 }
 
+@media (max-width: 480px) {
+  .title {
+    font-size: var(--font-size-xl);
+  }
+
+  .itemsHeader {
+    display: none;
+  }
+
+  .itemsSection {
+    padding: var(--space-4);
+  }
+}
+
 /* 상품 목록 */
 .itemsSection {
   background-color: var(--color-bg-surface);

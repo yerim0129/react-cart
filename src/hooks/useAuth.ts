@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { login, register } from '@/api/auth'
 import { useAuthStore } from '@/store/authStore'
 import { useCartStore } from '@/store/cartStore'
+import { useToastStore } from '@/store/toastStore'
 import type { LoginPayload, RegisterPayload } from '@/types/user'
 
 export const useLogin = () => {
@@ -38,10 +39,12 @@ export const useLogout = () => {
   const logout = useAuthStore((s) => s.logout)
   const clearCart = useCartStore((s) => s.clearCart)
   const user = useAuthStore((s) => s.user)
+  const showToast = useToastStore((s) => s.show)
 
   return () => {
     if (user) clearCart(user.id)
     logout()
+    showToast('로그아웃 되었습니다.', 'info')
     navigate('/login')
   }
 }

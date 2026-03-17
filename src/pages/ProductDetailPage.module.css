@@ -30,6 +30,24 @@
   .layout {
     grid-template-columns: 1fr;
   }
+
+  .skeletonLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .image {
+    height: 280px;
+  }
+
+  .name {
+    font-size: var(--font-size-lg);
+  }
+
+  .price {
+    font-size: var(--font-size-xl);
+  }
 }
 
 /* 이미지 */

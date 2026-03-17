@@ -5,6 +5,7 @@ import { useCartStore } from '@/store/cartStore'
 import { useAuthStore } from '@/store/authStore'
 import { useReviews, useCreateReview } from '@/hooks/useReviews'
 import { formatPrice } from '@/utils/formatPrice'
+import { useToastStore } from '@/store/toastStore'
 import Badge from '@/components/common/Badge'
 import Button from '@/components/common/Button'
 import ErrorMessage from '@/components/common/ErrorMessage'
@@ -32,6 +33,7 @@ const ProductDetailPage = () => {
   const { mutate: createReview, isPending: isReviewLoading } = useCreateReview(Number(id))
   const user = useAuthStore((s) => s.user)
   const addItem = useCartStore((state) => state.addItem)
+  const showToast = useToastStore((s) => s.show)
 
   const handleDecrease = () => setQuantity((prev) => Math.max(1, prev - 1))
   const handleIncrease = () => {
@@ -43,7 +45,7 @@ const ProductDetailPage = () => {
     if (!product) return
     if (!user) { navigate('/login'); return }
     addItem(user.id, product, quantity)
-    navigate('/cart')
+    showToast(`${product.name}을(를) 장바구니에 담았습니다.`)
   }
 
   const handleReviewSubmit = (payload: Parameters<typeof createReview>[0]) => {

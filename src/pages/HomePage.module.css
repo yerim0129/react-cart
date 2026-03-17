@@ -19,3 +19,13 @@
   border-bottom: 1px solid var(--color-border);
   padding-bottom: var(--space-4);
 }
+
+@media (max-width: 480px) {
+  .title {
+    font-size: var(--font-size-xl);
+  }
+
+  .searchWrapper {
+    max-width: 100%;
+  }
+}

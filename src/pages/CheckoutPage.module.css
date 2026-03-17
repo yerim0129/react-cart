@@ -22,6 +22,16 @@
   .layout {
     grid-template-columns: 1fr;
   }
+
+  .summary {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: var(--font-size-xl);
+  }
 }
 
 /* 주문 요약 패널 */

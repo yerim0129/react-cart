@@ -1,18 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "클래식 화이트 티셔츠",
-      "price": 29000,
-      "category": "clothing",
-      "imageUrl": "https://picsum.photos/seed/product1/400/400",
-      "stock": 50,
-      "description": "매일 입기 좋은 기본 화이트 티셔츠. 부드러운 면 소재로 편안한 착용감.",
-      "rating": 4.3,
-      "reviewCount": 12,
-      "createdAt": "2024-01-15"
-    },
-    {
       "id": 2,
       "name": "슬림핏 블랙 슬랙스",
       "price": 59000,
@@ -199,11 +187,6 @@
   ],
   "wishlists": [
     {
-      "productId": 1,
-      "createdAt": "2026-03-16T02:04:16.350Z",
-      "id": 1
-    },
-    {
       "productId": 2,
       "createdAt": "2026-03-16T02:04:19.353Z",
       "id": 2
@@ -212,6 +195,11 @@
       "productId": 3,
       "createdAt": "2026-03-16T02:04:20.199Z",
       "id": 3
+    },
+    {
+      "productId": 7,
+      "createdAt": "2026-03-16T23:26:08.642Z",
+      "id": 4
     }
   ],
   "reviews": [

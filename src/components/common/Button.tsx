@@ -28,6 +28,7 @@ const Button = ({
         fullWidth && styles.fullWidth
       )}
       disabled={disabled}
+      aria-disabled={disabled}
       onClick={onClick}
     >
       {label}

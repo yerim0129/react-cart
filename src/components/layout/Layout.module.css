@@ -11,3 +11,27 @@
   margin: 0 auto;
   padding: var(--spacing-xl) var(--spacing-lg);
 }
+
+.skipLink {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  background-color: var(--color-accent);
+  color: var(--color-accent-text);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  z-index: 9999;
+  transition: top var(--transition-fast);
+}
+
+.skipLink:focus {
+  top: var(--space-2);
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: var(--space-5) var(--space-4);
+  }
+}

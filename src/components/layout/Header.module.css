@@ -24,6 +24,7 @@
   letter-spacing: -0.5px;
 }
 
+/* ── 데스크탑 nav ── */
 .nav {
   display: flex;
   align-items: center;
@@ -103,4 +104,84 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* ── 햄버거 버튼 (모바일에서만 표시) ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: var(--space-2);
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--color-text-primary);
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-fast);
+}
+
+/* ── 모바일 드롭다운 메뉴 ── */
+.mobileMenu {
+  display: none;
+  flex-direction: column;
+  background-color: var(--color-bg-surface);
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-4) var(--space-6);
+  gap: var(--space-1);
+}
+
+.mobileLink {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--transition-fast);
+}
+
+.mobileLink:last-of-type {
+  border-bottom: none;
+}
+
+.mobileLink:hover {
+  color: var(--color-accent);
+}
+
+.mobileUserName {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+  padding: var(--space-3) 0;
+}
+
+.mobileLogoutBtn {
+  background: none;
+  border: none;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-error);
+  cursor: pointer;
+  padding: var(--space-3) 0;
+  text-align: left;
+}
+
+/* ── 반응형 ── */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: flex;
+  }
 }

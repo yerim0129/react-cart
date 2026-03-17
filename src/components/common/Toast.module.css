@@ -1,0 +1,84 @@
+.container {
+  position: fixed;
+  bottom: var(--space-8);
+  right: var(--space-8);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-width: 260px;
+  max-width: 360px;
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  animation: slideIn var(--transition-base) ease;
+}
+
+.message {
+  flex: 1;
+}
+
+.close {
+  background: none;
+  border: none;
+  font-size: var(--font-size-xs);
+  cursor: pointer;
+  opacity: 0.6;
+  padding: 0;
+  transition: opacity var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.close:hover {
+  opacity: 1;
+}
+
+/* 타입별 색상 */
+.success {
+  background-color: var(--color-success-light);
+  color: var(--color-success);
+  border: 1px solid var(--color-success);
+}
+
+.error {
+  background-color: var(--color-error-light);
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
+}
+
+.info {
+  background-color: var(--color-accent-light);
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    bottom: var(--space-4);
+    right: var(--space-4);
+    left: var(--space-4);
+  }
+
+  .toast {
+    max-width: 100%;
+  }
+}
