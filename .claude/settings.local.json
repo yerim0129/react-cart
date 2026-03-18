@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(cd D:/study/react-cart && mkdir -p src/api src/types src/store src/hooks src/utils \\\\\n  src/components/common src/components/layout \\\\\n  src/components/features/product src/components/features/cart \\\\\n  src/components/features/checkout src/components/features/wishlist \\\\\n  src/components/features/review \\\\\n  src/pages/admin 2>&1 && echo \"Directories created\")",
-      "Bash(cd D:/study/react-cart && npx tsc --noEmit 2>&1)"
+      "Bash(cd D:/study/react-cart && npx tsc --noEmit 2>&1)",
+      "Bash(npm init:*)",
+      "Bash(npm install:*)"
     ]
   }
 }
