@@ -1,5 +1,5 @@
-import { IBaseEntity } from "./IBaseEntity";
-import { IUser } from "./IUser";
+import {IBaseEntity} from "./IBaseEntity";
+import {IUser} from "./IUser";
 
 export interface ITask extends IBaseEntity {
   title: string;
