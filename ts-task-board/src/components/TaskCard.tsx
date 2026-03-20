@@ -1,8 +1,9 @@
 import {ITask} from "../interfaces/ITask";
+import * as styles from "./TaskCard.css.ts";
 
 function TaskCard({task}: {task: ITask}) {
   return (
-    <li>
+    <li className={styles.card}>
       <h2>{task.title}</h2>
       <p>{task.status}</p>
       <p>{task.priority}</p>
