@@ -1,17 +1,13 @@
-import {useQuery} from "@tanstack/react-query";
-import {fetchTasks} from "../apis/task";
+import {useTaskList} from "../hooks/useTaskList";
 import TaskCard from "./TaskCard";
 
-export function TaskList() {
-  const {data, isLoading} = useQuery({
-    queryKey: ["tasks"],
-    queryFn: fetchTasks,
-  });
+export function TaskList({status}: {status?: string}) {
+  const {tasks, isLoading} = useTaskList(status);
   if (isLoading) return <div>로딩 중</div>;
 
   return (
     <ul>
-      {data?.data.map((task) => (
+      {tasks?.map((task) => (
         <TaskCard key={task.id} task={task} />
       ))}
     </ul>

@@ -28,10 +28,17 @@ let tasks: ITask[] = [
 
 export const handlers = [
   // 목록 조회
-  http.get("/api/tasks", () => {
+  http.get("/api/tasks", ({request}) => {
+    const url = new URL(request.url);
+    const status = url.searchParams.get("status");
+
+    const filtered = status
+      ? tasks.filter((t) => t.status === status)
+      : tasks;
+
     return HttpResponse.json({
-      data: tasks,
-      total: tasks.length,
+      data: filtered,
+      total: filtered.length,
       page: 1,
       limit: 10,
     });
