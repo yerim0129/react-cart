@@ -10,8 +10,8 @@
     "server": "json-server --watch db.json --port 3001",
     "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
     "test": "vitest",
-    "test:ui":"vitest --ui",
-    "test:run":"vitest run"
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -26,6 +26,7 @@
     "zustand": "^4.5.5"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
