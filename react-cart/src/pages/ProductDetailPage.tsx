@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useProduct } from '@/hooks/useProduct'
 import { useCartStore } from '@/store/cartStore'
 import { useAuthStore } from '@/store/authStore'
 import { useReviews, useCreateReview } from '@/hooks/useReviews'
 import { formatPrice } from '@/utils/formatPrice'
 import { useToastStore } from '@/store/toastStore'
+import { useLoginModalStore } from '@/store/loginModalStore'
 import Badge from '@/components/common/Badge'
 import Button from '@/components/common/Button'
 import ErrorMessage from '@/components/common/ErrorMessage'
@@ -24,7 +25,6 @@ const CATEGORY_LABELS: Record<string, string> = {
 
 const ProductDetailPage = () => {
   const { id } = useParams<{ id: string }>()
-  const navigate = useNavigate()
   const [quantity, setQuantity] = useState(1)
   const [isReviewModalOpen, setIsReviewModalOpen] = useState(false)
 
@@ -34,6 +34,7 @@ const ProductDetailPage = () => {
   const user = useAuthStore((s) => s.user)
   const addItem = useCartStore((state) => state.addItem)
   const showToast = useToastStore((s) => s.show)
+  const openLoginModal = useLoginModalStore((s) => s.open)
 
   const handleDecrease = () => setQuantity((prev) => Math.max(1, prev - 1))
   const handleIncrease = () => {
@@ -43,7 +44,7 @@ const ProductDetailPage = () => {
 
   const handleAddToCart = () => {
     if (!product) return
-    if (!user) { navigate('/login'); return }
+    if (!user) { openLoginModal(); return }
     addItem(user.id, product, quantity)
     showToast(`${product.name}을(를) 장바구니에 담았습니다.`)
   }

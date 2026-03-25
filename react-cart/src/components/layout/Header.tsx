@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuthStore } from '@/store/authStore'
 import { useCartStore } from '@/store/cartStore'
+import { useWishlistStore } from '@/store/wishlistStore'
 import { useLogout } from '@/hooks/useAuth'
 import styles from './Header.module.css'
 
@@ -10,6 +11,7 @@ const Header = () => {
   const totalQuantity = useCartStore((s) =>
     user ? s.getTotalCount(user.id) : 0
   )
+  const wishlistCount = useWishlistStore((s) => s.productIds.length)
   const logout = useLogout()
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -28,7 +30,12 @@ const Header = () => {
               {user.role === 'admin' && (
                 <Link to="/admin/products" className={styles.adminLink}>관리자</Link>
               )}
-              <Link to="/wishlist" className={styles.navLink}>찜하기</Link>
+              <Link to="/wishlist" className={styles.wishlistLink} aria-label={`찜하기 ${wishlistCount > 0 ? `${wishlistCount}개` : ''}`}>
+                찜하기
+                {wishlistCount > 0 && (
+                  <span className={styles.badge} aria-hidden="true">{wishlistCount}</span>
+                )}
+              </Link>
               <Link to="/cart" className={styles.cartLink} aria-label={`장바구니 ${totalQuantity > 0 ? `${totalQuantity}개` : ''}`}>
                 장바구니
                 {totalQuantity > 0 && (
@@ -72,7 +79,9 @@ const Header = () => {
               {user.role === 'admin' && (
                 <Link to="/admin/products" className={styles.mobileLink} onClick={closeMenu}>관리자</Link>
               )}
-              <Link to="/wishlist" className={styles.mobileLink} onClick={closeMenu}>찜하기</Link>
+              <Link to="/wishlist" className={styles.mobileLink} onClick={closeMenu}>
+                찜하기 {wishlistCount > 0 && `(${wishlistCount})`}
+              </Link>
               <Link to="/cart" className={styles.mobileLink} onClick={closeMenu}>
                 장바구니 {totalQuantity > 0 && `(${totalQuantity})`}
               </Link>

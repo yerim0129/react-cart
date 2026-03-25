@@ -64,7 +64,7 @@ const RegisterPage = () => {
             label={isPending ? '가입 중...' : '회원가입'}
             type="submit"
             fullWidth
-            disabled={isPending}
+            isLoading={isPending}
           />
         </form>
 

@@ -6,6 +6,7 @@ interface ButtonProps {
   variant?: 'primary' | 'secondary' | 'danger'
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
+  isLoading?: boolean
   fullWidth?: boolean
   onClick?: () => void
 }
@@ -15,6 +16,7 @@ const Button = ({
   variant = 'primary',
   type = 'button',
   disabled,
+  isLoading,
   fullWidth,
   onClick,
 }: ButtonProps) => {
@@ -24,13 +26,14 @@ const Button = ({
       className={clsx(
         styles.button,
         styles[variant],
-        disabled && styles.disabled,
+        (disabled || isLoading) && styles.disabled,
         fullWidth && styles.fullWidth
       )}
-      disabled={disabled}
-      aria-disabled={disabled}
+      disabled={disabled || isLoading}
+      aria-disabled={disabled || isLoading}
       onClick={onClick}
     >
+      {isLoading && <span className={styles.spinner} aria-hidden="true" />}
       {label}
     </button>
   )

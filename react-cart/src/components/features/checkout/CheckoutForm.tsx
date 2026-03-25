@@ -69,7 +69,7 @@ const CheckoutForm = ({onSubmit, isLoading}: CheckoutFormProps) => {
         label={isLoading ? "주문 처리 중..." : "주문하기"}
         type="submit"
         fullWidth
-        disabled={isLoading}
+        isLoading={isLoading}
       />
     </form>
   );

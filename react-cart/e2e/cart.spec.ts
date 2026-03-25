@@ -2,13 +2,12 @@ import {test, expect} from "@playwright/test";
 import {loginUser} from "./helpers";
 
 test.describe("장바구니", () => {
-  test("로그인 후 상품을 장바구니에 담으면 장바구니 배지가 표시된다", async ({
+  test("로그인 후 상품을 장바구니에 담으면 토스트가 표시된다", async ({
     page,
   }) => {
     await loginUser(page);
-    await page.locator("article a").first().click();
-    await page.getByRole("button", {name: "장바구니 담기"}).click();
-    await expect(page.getByRole("link", {name: /장바구니/})).toBeVisible();
+    await page.getByRole("button", {name: "장바구니 담기"}).first().click();
+    await expect(page.getByText("장바구니에 담았습니다.")).toBeVisible();
   });
 
   test("장바구니 페이지에서 담은 상품이 보인다", async ({page}) => {

@@ -56,6 +56,18 @@
   background-color: var(--color-accent-hover);
 }
 
+.wishlistLink {
+  position: relative;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.wishlistLink:hover {
+  color: var(--color-accent);
+}
+
 .cartLink {
   position: relative;
   font-size: var(--font-size-base);

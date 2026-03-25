@@ -1,6 +1,8 @@
 import clsx from 'clsx'
 import { useWishlistToggle } from '@/hooks/useWishlist'
 import { useToastStore } from '@/store/toastStore'
+import { useAuthStore } from '@/store/authStore'
+import { useLoginModalStore } from '@/store/loginModalStore'
 import styles from './WishlistButton.module.css'
 
 interface WishlistButtonProps {
@@ -11,10 +13,13 @@ interface WishlistButtonProps {
 const WishlistButton = ({ productId, size = 'md' }: WishlistButtonProps) => {
   const { isWishlisted, toggle, isLoading } = useWishlistToggle(productId)
   const showToast = useToastStore((s) => s.show)
+  const user = useAuthStore((s) => s.user)
+  const openLoginModal = useLoginModalStore((s) => s.open)
 
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
+    if (!user) { openLoginModal(); return }
     toggle()
     showToast(isWishlisted ? '찜 목록에서 삭제했습니다.' : '찜 목록에 추가했습니다.', isWishlisted ? 'info' : 'success')
   }

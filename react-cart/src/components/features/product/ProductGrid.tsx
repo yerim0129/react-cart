@@ -1,7 +1,8 @@
-import { useNavigate } from 'react-router-dom'
 import type { Product } from '@/types/product'
 import { useCartStore } from '@/store/cartStore'
 import { useAuthStore } from '@/store/authStore'
+import { useToastStore } from '@/store/toastStore'
+import { useLoginModalStore } from '@/store/loginModalStore'
 import ProductCard from './ProductCard'
 import Skeleton from '@/components/common/Skeleton'
 import styles from './ProductGrid.module.css'
@@ -11,16 +12,18 @@ interface ProductGridProps {
 }
 
 const ProductGrid = ({ products }: ProductGridProps) => {
-  const navigate = useNavigate()
   const user = useAuthStore((s) => s.user)
   const addItem = useCartStore((s) => s.addItem)
+  const showToast = useToastStore((s) => s.show)
+  const openLoginModal = useLoginModalStore((s) => s.open)
 
   const handleAddToCart = (product: Product) => {
     if (!user) {
-      navigate('/login')
+      openLoginModal()
       return
     }
     addItem(user.id, product)
+    showToast(`${product.name}을(를) 장바구니에 담았습니다.`)
   }
 
   if (products.length === 0) {

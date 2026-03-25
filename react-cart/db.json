@@ -164,6 +164,13 @@
       "password": "test1234",
       "createdAt": "2026-03-25",
       "id": 11
+    },
+    {
+      "name": "테스터",
+      "email": "test_1774402333202@test.com",
+      "password": "test1234",
+      "createdAt": "2026-03-25",
+      "id": 12
     }
   ],
   "carts": [],
@@ -832,14 +839,40 @@
       "createdAt": "2026-03-25T01:03:09.615Z",
       "userId": 1,
       "id": 21
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-25T01:32:17.161Z",
+      "userId": 1,
+      "id": 22
     }
   ],
   "wishlists": [
-    {
-      "productId": 3,
-      "createdAt": "2026-03-16T02:04:20.199Z",
-      "id": 3
-    },
     {
       "productId": 7,
       "createdAt": "2026-03-16T23:26:08.642Z",
@@ -849,6 +882,11 @@
       "productId": 2,
       "createdAt": "2026-03-25T00:39:31.954Z",
       "id": 5
+    },
+    {
+      "productId": 3,
+      "createdAt": "2026-03-25T01:31:54.510Z",
+      "id": 6
     }
   ],
   "reviews": [

@@ -17,6 +17,16 @@ describe("Button", () => {
     expect(handleClick).toHaveBeenCalled();
   });
 
+  it("isLoading이면 스피너가 표시되고 클릭이 안 된다", async () => {
+    const handleClick = vi.fn()
+    render(<Button label="확인" isLoading onClick={handleClick} />)
+
+    expect(screen.getByText("확인")).toBeInTheDocument()
+    await userEvent.click(screen.getByText("확인"))
+
+    expect(handleClick).toHaveBeenCalledTimes(0)
+  })
+
   it("disabled 이면 클릭해도 onClick이 호출되지 않는다.", async () => {
     const handleClick = vi.fn();
     render(<Button label="확인" disabled onClick={handleClick} />);

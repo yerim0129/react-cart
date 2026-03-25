@@ -51,7 +51,7 @@ const LoginPage = () => {
             label={isPending ? '로그인 중...' : '로그인'}
             type="submit"
             fullWidth
-            disabled={isPending}
+            isLoading={isPending}
           />
         </form>
 
