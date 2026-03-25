@@ -53,6 +53,8 @@ React + TypeScript 기반 쇼핑몰 프로젝트입니다.
 | Auth Step C | hooks/useAuth.ts + ProtectedRoute.tsx | ✅ 완료 |
 | Auth Step D | LoginPage.tsx + RegisterPage.tsx | ✅ 완료 |
 | Auth Step E | App.tsx 라우팅 + Header.tsx 로그인 상태 반영 | ✅ 완료 |
+| UX 고도화 | 토스트·버튼스피너·프로그레스바·찜하기뱃지·로그인필요모달 | ✅ 완료 |
+| 테스팅 | Vitest 단위 테스트 + Playwright E2E 테스트 | ✅ 완료 |
 | Phase 3 | 관리자 페이지 (대시보드·상품CRUD·주문관리) | ⏳ 미진행 |
 
 > Phase 3 (관리자)는 별도 지시 시 진행

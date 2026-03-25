@@ -38,6 +38,8 @@ shop-ts/
     │
     ├── store/
     │   ├── cartStore.ts
+    │   ├── toastStore.ts            # 토스트 알림 전역 상태 (UX 고도화)
+    │   ├── loginModalStore.ts       # 로그인 필요 모달 상태 (UX 고도화)
     │   └── wishlistStore.ts         # [Phase 2]
     │
     ├── hooks/
@@ -63,7 +65,13 @@ shop-ts/
     │   │   ├── ErrorMessage.tsx
     │   │   ├── ErrorMessage.module.css
     │   │   ├── Modal.tsx            # [Phase 2]
-    │   │   └── Modal.module.css     # [Phase 2]
+    │   │   ├── Modal.module.css     # [Phase 2]
+    │   │   ├── Toast.tsx            # 토스트 알림 (UX 고도화)
+    │   │   ├── Toast.module.css
+    │   │   ├── ProgressBar.tsx      # 페이지 전환 프로그레스 바 (UX 고도화)
+    │   │   ├── ProgressBar.module.css
+    │   │   ├── LoginRequiredModal.tsx     # 비로그인 시 모달 (UX 고도화)
+    │   │   └── LoginRequiredModal.module.css
     │   │
     │   ├── layout/
     │   │   ├── Header.tsx
@@ -117,10 +125,34 @@ shop-ts/
     │       ├── AdminProductsPage.tsx
     │       └── AdminOrdersPage.tsx
     │
+    ├── test/
+    │   └── setup.ts             # Vitest 전역 셋업 (@testing-library/jest-dom)
+    │
     └── utils/
         ├── formatPrice.ts
+        ├── formatPrice.test.ts  # Vitest 단위 테스트
         ├── formatDate.ts
+        ├── formatDate.test.ts   # Vitest 단위 테스트
         └── validators.ts
+```
+
+> **테스트 파일 위치 규칙:** 단위 테스트(`*.test.ts/tsx`)는 대상 파일과 같은 폴더에 위치시킨다.
+
+---
+
+## 테스트 관련 루트 파일
+
+```
+react-cart/
+├── vitest.config.ts             # Vitest 설정 (jsdom, globals, alias)
+├── playwright.config.ts         # Playwright E2E 설정 (수정)
+│
+└── e2e/                         # Playwright E2E 테스트
+    ├── helpers.ts               # 공통 헬퍼 (loginUser 등)
+    ├── auth.spec.ts             # 로그인/회원가입/로그아웃 테스트
+    ├── products.spec.ts         # 상품 목록/상세 테스트
+    ├── cart.spec.ts             # 장바구니 테스트
+    └── checkout.spec.ts         # 결제/주문 완료 테스트
 ```
 
 ---

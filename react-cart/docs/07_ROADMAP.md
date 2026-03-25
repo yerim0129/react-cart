@@ -72,6 +72,40 @@ src/components/common/Modal.tsx + .module.css
 
 ---
 
+## UX 고도화 — 완료 ✅
+
+### 추가된 기능
+| 기능 | 파일 | 설명 |
+|---|---|---|
+| 토스트 알림 | `store/toastStore.ts`, `components/common/Toast.tsx` | 장바구니 담기, 찜하기 등 피드백 |
+| 버튼 로딩 스피너 | `Button.tsx` (`isLoading` prop 추가) | 비동기 작업 중 버튼 내 스피너 표시 |
+| 페이지 프로그레스 바 | `components/common/ProgressBar.tsx` | 라우트 전환 시 상단 바 애니메이션 |
+| 찜하기 헤더 뱃지 | `Header.tsx` | 찜한 상품 수 표시 |
+| 로그인 필요 모달 | `store/loginModalStore.ts`, `components/common/LoginRequiredModal.tsx` | 비로그인 상태에서 액션 시 모달 표시 |
+
+---
+
+## 테스팅 — 완료 ✅
+
+### Vitest 단위 테스트
+| 파일 | 테스트 내용 |
+|---|---|
+| `utils/formatPrice.test.ts` | 가격 포맷 함수 |
+| `utils/formatDate.test.ts` | 날짜 포맷 함수 |
+| `components/common/Badge.test.tsx` | Badge 렌더링 |
+| `components/common/Button.test.tsx` | 클릭, disabled, isLoading |
+| `hooks/useDebounce.test.tsx` | 디바운스 타이밍 (fake timers) |
+
+### Playwright E2E 테스트
+| 파일 | 테스트 내용 |
+|---|---|
+| `e2e/auth.spec.ts` | 로그인 성공/실패, 로그아웃, 비로그인 접근, 회원가입 |
+| `e2e/products.spec.ts` | 홈 렌더링, 상품 상세, 장바구니 추가, 검색, 404 |
+| `e2e/cart.spec.ts` | 토스트 표시, 장바구니 확인, 빈 장바구니 |
+| `e2e/checkout.spec.ts` | 결제 페이지, 주문 완료, 빈 장바구니 리다이렉트 |
+
+---
+
 ## Phase 3 — 관리자 페이지 (Admin Dashboard)
 
 ### 페이지 구성
