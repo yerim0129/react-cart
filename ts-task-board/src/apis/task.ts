@@ -3,10 +3,12 @@ import {ITask} from "../interfaces/ITask";
 
 export async function fetchTasks(
   status?: string,
+  page?: number
 ): Promise<PagedResponse<ITask>> {
-  const res = await fetch(
-    status ? `/api/tasks/?status=${status}` : `/api/tasks`,
-  );
+  const params = new URLSearchParams();
+  if (status) params.set("status", status);
+  if (page) params.set("page", String(page));
+  const res = await fetch(`/api/tasks?${params.toString()}`);
   const data = await res.json();
   return data;
 }
@@ -21,3 +23,4 @@ export async function createTask(
   });
   return res.json();
 }
+

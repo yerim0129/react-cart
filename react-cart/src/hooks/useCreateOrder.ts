@@ -13,8 +13,8 @@ export const useCreateOrder = () => {
     mutationFn: (payload: Parameters<typeof createOrder>[0]) =>
       createOrder({ ...payload, userId: user?.id ?? 0 }),
     onSuccess: (data) => {
-      if (user) clearCart(user.id)
       navigate('/order-complete', { state: { orderId: data.id } })
+      if (user) clearCart(user.id)
     },
   })
 }

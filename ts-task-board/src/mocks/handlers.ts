@@ -1,46 +1,38 @@
 import {http, HttpResponse} from "msw";
 import {ITask} from "../interfaces/ITask";
 
-let tasks: ITask[] = [
-  {
-    id: "1",
-    title: "MSW 핸들러 작성",
-    description: "Mock API 핸들러를 작성한다",
-    status: "IN_PROGRESS",
-    priority: "HIGH",
-    assignee: {id: "u1", name: "홍길동", email: "hong@test.com", role: "USER"},
-    dueDate: new Date("2026-04-01"),
-    createdAt: new Date("2026-03-01"),
-    updatedAt: new Date("2026-03-18"),
-  },
-  {
-    id: "2",
-    title: "TanStack Query 연결",
-    description: "useQuery로 태스크 목록을 불러온다",
-    status: "TODO",
-    priority: "MEDIUM",
-    assignee: {id: "u1", name: "홍길동", email: "hong@test.com", role: "USER"},
-    dueDate: new Date("2026-04-10"),
-    createdAt: new Date("2026-03-01"),
-    updatedAt: new Date("2026-03-18"),
-  },
-];
+let tasks: ITask[] = Array.from({length: 25}, (_, i) => ({
+  id: String(i + 1),
+  title: `태스크 ${i + 1}`,
+  description: `태스크 ${i + 1} 설명`,
+  status: (["TODO", "IN_PROGRESS", "DONE"] as const)[i % 3],
+  priority: (["LOW", "MEDIUM", "HIGH"] as const)[i % 3],
+  assignee: {id: "u1", name: "홍길동", email: "hong@test.com", role: "USER" as const},
+  dueDate: new Date("2026-04-01"),
+  createdAt: new Date("2026-03-01"),
+  updatedAt: new Date("2026-03-18"),
+}));
 
 export const handlers = [
   // 목록 조회
   http.get("/api/tasks", ({request}) => {
     const url = new URL(request.url);
     const status = url.searchParams.get("status");
+    const page = Number(url.searchParams.get("page") ?? 1);
+    const limit = Number(url.searchParams.get("limit") ?? 5);
 
     const filtered = status
       ? tasks.filter((t) => t.status === status)
       : tasks;
 
+    const start = (page - 1) * limit;
+    const paginated = filtered.slice(start, start + limit);
+
     return HttpResponse.json({
-      data: filtered,
+      data: paginated,
       total: filtered.length,
-      page: 1,
-      limit: 10,
+      page,
+      limit,
     });
   }),
 

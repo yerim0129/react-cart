@@ -83,9 +83,6 @@
       "rating": 4.1,
       "reviewCount": 14,
       "createdAt": "2024-02-18"
-    },
-    {
-      "id": 9
     }
   ],
   "users": [
@@ -104,6 +101,69 @@
       "password": "admin1234",
       "role": "admin",
       "createdAt": "2026-03-16"
+    },
+    {
+      "name": "테스터",
+      "email": "test_1774335676354@test.com",
+      "password": "test1234",
+      "createdAt": "2026-03-24",
+      "id": 3
+    },
+    {
+      "name": "테스터",
+      "email": "test_1774335690893@test.com",
+      "password": "test1234",
+      "createdAt": "2026-03-24",
+      "id": 4
+    },
+    {
+      "name": "테스터",
+      "email": "test_1774335711571@test.com",
+      "password": "test1234",
+      "createdAt": "2026-03-24",
+      "id": 5
+    },
+    {
+      "name": "테스터",
+      "email": "test_1774397237413@test.com",
+      "password": "test1234",
+      "createdAt": "2026-03-25",
+      "id": 6
+    },
+    {
+      "name": "테스터",
+      "email": "test_1774398696770@test.com",
+      "password": "test1234",
+      "createdAt": "2026-03-25",
+      "id": 7
+    },
+    {
+      "name": "테스터",
+      "email": "test_1774398975314@test.com",
+      "password": "test1234",
+      "createdAt": "2026-03-25",
+      "id": 8
+    },
+    {
+      "name": "테스터",
+      "email": "test_1774399396591@test.com",
+      "password": "test1234",
+      "createdAt": "2026-03-25",
+      "id": 9
+    },
+    {
+      "name": "테스터",
+      "email": "test_1774400072021@test.com",
+      "password": "test1234",
+      "createdAt": "2026-03-25",
+      "id": 10
+    },
+    {
+      "name": "테스터",
+      "email": "test_1774400586242@test.com",
+      "password": "test1234",
+      "createdAt": "2026-03-25",
+      "id": 11
     }
   ],
   "carts": [],
@@ -183,14 +243,598 @@
       "totalPrice": 38000,
       "createdAt": "2026-03-16T04:41:35.970Z",
       "id": 2
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-24T07:01:18.326Z",
+      "userId": 1,
+      "id": 3
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-24T07:01:40.321Z",
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-24T07:01:58.153Z",
+      "userId": 1,
+      "id": 5
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-24T07:23:50.822Z",
+      "userId": 1,
+      "id": 6
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-24T07:23:50.892Z",
+      "userId": 1,
+      "id": 7
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-24T07:23:56.496Z",
+      "userId": 1,
+      "id": 8
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-24T07:25:21.479Z",
+      "userId": 1,
+      "id": 9
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-24T22:57:52.250Z",
+      "userId": 1,
+      "id": 10
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-24T22:59:12.462Z",
+      "userId": 1,
+      "id": 11
+    },
+    {
+      "items": [
+        {
+          "productId": 5,
+          "product": {
+            "id": 5,
+            "name": "제주 유기농 녹차",
+            "price": 18000,
+            "category": "food",
+            "imageUrl": "https://picsum.photos/seed/product5/400/400",
+            "stock": 100,
+            "description": "제주도에서 자란 유기농 찻잎으로 만든 프리미엄 녹차.",
+            "rating": 4.8,
+            "reviewCount": 31,
+            "createdAt": "2024-02-10"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "ddd",
+        "phone": "010-1111-2111",
+        "address": "서울 금천구 가마산로 72",
+        "detailAddress": "12312",
+        "memo": ""
+      },
+      "totalPrice": 21000,
+      "createdAt": "2026-03-24T22:59:24.544Z",
+      "userId": 1,
+      "id": 12
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-24T23:53:21.006Z",
+      "userId": 1,
+      "id": 13
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-24T23:55:22.036Z",
+      "userId": 1,
+      "id": 14
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-25T00:04:09.237Z",
+      "userId": 1,
+      "id": 15
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-25T00:07:18.355Z",
+      "userId": 1,
+      "id": 16
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-25T00:31:38.593Z",
+      "userId": 1,
+      "id": 17
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-25T00:36:17.236Z",
+      "userId": 1,
+      "id": 18
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-25T00:43:18.709Z",
+      "userId": 1,
+      "id": 19
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-25T00:54:34.690Z",
+      "userId": 1,
+      "id": 20
+    },
+    {
+      "items": [
+        {
+          "productId": 2,
+          "product": {
+            "id": 2,
+            "name": "슬림핏 블랙 슬랙스",
+            "price": 59000,
+            "category": "clothing",
+            "imageUrl": "https://picsum.photos/seed/product2/400/400",
+            "stock": 30,
+            "description": "어떤 상황에서도 어울리는 슬림핏 슬랙스. 신축성 소재로 활동하기 편함.",
+            "rating": 4.7,
+            "reviewCount": 8,
+            "createdAt": "2024-01-20"
+          },
+          "quantity": 1
+        }
+      ],
+      "shippingInfo": {
+        "name": "테스트유저",
+        "phone": "010-0000-0000",
+        "address": "서울시 강남구 테헤란로 123",
+        "detailAddress": "101동 202호",
+        "memo": ""
+      },
+      "totalPrice": 59000,
+      "createdAt": "2026-03-25T01:03:09.615Z",
+      "userId": 1,
+      "id": 21
     }
   ],
   "wishlists": [
-    {
-      "productId": 2,
-      "createdAt": "2026-03-16T02:04:19.353Z",
-      "id": 2
-    },
     {
       "productId": 3,
       "createdAt": "2026-03-16T02:04:20.199Z",
@@ -200,6 +844,11 @@
       "productId": 7,
       "createdAt": "2026-03-16T23:26:08.642Z",
       "id": 4
+    },
+    {
+      "productId": 2,
+      "createdAt": "2026-03-25T00:39:31.954Z",
+      "id": 5
     }
   ],
   "reviews": [

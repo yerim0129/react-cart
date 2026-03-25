@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useCartStore } from '@/store/cartStore'
 import { useAuthStore } from '@/store/authStore'
@@ -18,9 +18,10 @@ const CheckoutPage = () => {
   const getItems = useCartStore((s) => s.getItems)
   const items = user ? getItems(user.id) : []
   const { mutate: createOrder, isPending, isError } = useCreateOrder()
+  const isSubmitting = useRef(false)
 
   useEffect(() => {
-    if (items.length === 0) {
+    if (items.length === 0 && !isSubmitting.current) {
       navigate('/cart', { replace: true })
     }
   }, [items.length, navigate])
@@ -32,6 +33,7 @@ const CheckoutPage = () => {
   const finalPrice = totalPrice + shippingFee
 
   const handleSubmit = (shippingInfo: ShippingFormValues) => {
+    isSubmitting.current = true
     createOrder({
       items,
       shippingInfo,

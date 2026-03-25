@@ -27,9 +27,8 @@ export const useRegister = () => {
 
   return useMutation({
     mutationFn: (payload: RegisterPayload) => register(payload),
-    onSuccess: ({ user, token }) => {
-      setAuth(user, token)
-      navigate('/')
+    onSuccess: () => {
+      navigate('/login')
     },
   })
 }
