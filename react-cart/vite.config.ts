@@ -9,4 +9,11 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  css: {
+    modules: {
+      generateScopedName: process.env.NODE_ENV === 'production'
+        ? '[hash:base64:8]'
+        : '[name]__[local]',
+    },
+  },
 })
